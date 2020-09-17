@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="objectivity.recaptcha.ReCaptcha" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Re Captcha</name>
+    <description>reCaptcha google widget for mendix applications</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="sitekey" type="string" required="true">
+                <caption>Site key</caption>
+                <description>The API client key</description>
+            </property>
+            <property key="theme" type="enumeration" defaultValue= "light">
+                <caption>Theme</caption>
+                <description>The theme of the widget</description>
+                <enumerationValues>
+                <enumerationValue key="light">Light</enumerationValue>
+                <enumerationValue key="dark">Dark</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="onChange" type="action" required="true">
+                <caption>On change</caption>
+                <description>The function to be called when the user successfully completes the captcha</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

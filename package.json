@@ -25,6 +25,7 @@
     "@mendix/pluggable-widgets-tools": "^8.12.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "react-google-recaptcha": "^2.1.0"
   }
 }
