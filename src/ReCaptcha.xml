@@ -24,6 +24,33 @@
                 <caption>On change</caption>
                 <description>The function to be called when the user successfully completes the captcha</description>
             </property>
+            <property key="onExpired" type="action" required="false">
+                <caption>On expired</caption>
+                <description>Callback when the challenge is expired and has to be redone by user. By default it will call the onChange with null to signify expired callback.</description>
+            </property>
+            <property key="onErrored" type="action" required="false">
+                <caption>On errored</caption>
+                <description>Callback when the challenge errored, most likely due to network issues.</description>
+            </property>
+            <property key="size" type="enumeration" defaultValue= "normal">
+                <caption>Size</caption>
+                <description>This allows you to change the size.</description>
+                <enumerationValues>
+                <enumerationValue key="compact">Compact</enumerationValue>
+                <enumerationValue key="normal">Normal </enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="badge" type="enumeration" defaultValue= "bottomleft">
+                <caption>Badge</caption>
+                <description>Positions of reCAPTCHA badge.</description>
+                <enumerationValues>
+                <enumerationValue key="bottomright">Bottom right</enumerationValue>
+                <enumerationValue key="bottomleft">Bottom left</enumerationValue>
+                <enumerationValue key="inline">Inline</enumerationValue>
+                </enumerationValues>
+            </property>
+            
         </propertyGroup>
     </properties>
 </widget>
+
