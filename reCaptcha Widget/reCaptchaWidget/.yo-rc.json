@@ -1,0 +1,13 @@
+{
+  "@mendix/generator-widget": {
+    "promptValues": {
+      "organization": "Objectivity ",
+      "copyright": "Objectivity 2020 ",
+      "license": "MIT",
+      "author": "Lenka Hruscakova",
+      "programmingLanguage": "javascript",
+      "platform": "web",
+      "boilerplate": "empty"
+    }
+  }
+}
