@@ -40,15 +40,7 @@
                 <enumerationValue key="normal">Normal </enumerationValue>
                 </enumerationValues>
             </property>
-            <property key="badge" type="enumeration" defaultValue= "bottomleft">
-                <caption>Badge</caption>
-                <description>Positions of reCAPTCHA badge.</description>
-                <enumerationValues>
-                <enumerationValue key="bottomright">Bottom right</enumerationValue>
-                <enumerationValue key="bottomleft">Bottom left</enumerationValue>
-                <enumerationValue key="inline">Inline</enumerationValue>
-                </enumerationValues>
-            </property>
+            
             
         </propertyGroup>
     </properties>
