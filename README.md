@@ -1,8 +1,9 @@
 ## ReCaptcha
-[Simple reCaptcha google widget for mendix applications based on this react component https://www.npmjs.com/package/react-google-recaptcha ]
+[Simple reCaptcha google widget for mendix applications.
 
-## Features
-[feature highlights]
+Settings of this widget will allow you to decide what should happen on SUccess, Error or Expiration of Recaptcha checkbox. 
+Widget is based on NPM module (https://www.npmjs.com/package/react-google-recaptcha) ]
+
 
 ## Usage
 [Site key 
