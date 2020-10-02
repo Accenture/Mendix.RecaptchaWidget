@@ -6,7 +6,7 @@ Widget is based on NPM module (https://www.npmjs.com/package/react-google-recapt
 ## Usage
 All you need to do is sign up for an API key pair. 
 Simply place this widget on your layout and configure it correctly. 
-Properties used to customise the rendering:
+Properties used to customise the rendering can be found in the General Tab:
 
 | Name | Type | Description |
 |:---- | ---- | ------ |
