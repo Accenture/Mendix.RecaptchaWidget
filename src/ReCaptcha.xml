@@ -21,7 +21,7 @@
                 </enumerationValues>
             </property>
             <property key="onChange" type="action" required="true">
-                <caption>On change</caption>
+                <caption>On validation</caption>
                 <description>The function to be called when the user successfully completes the captcha</description>
             </property>
             <property key="onExpired" type="action" required="false">
@@ -29,7 +29,7 @@
                 <description>Callback when the challenge is expired and has to be redone by user. By default it will call the onChange with null to signify expired callback.</description>
             </property>
             <property key="onErrored" type="action" required="false">
-                <caption>On errored</caption>
+                <caption>On failed validation</caption>
                 <description>Callback when the challenge errored, most likely due to network issues.</description>
             </property>
             <property key="size" type="enumeration" defaultValue= "normal">

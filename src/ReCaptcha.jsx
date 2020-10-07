@@ -1,32 +1,64 @@
-import { Component, createElement } from "react";
+import React, { Component, createElement } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-
 import "./ui/ReCaptcha.css";
 
 export default class ReCaptcha extends Component {
+    
     constructor(props) {
         super(props);
-
-        this.handleonChange = this.handleonChange.bind(this);
+        const recaptchaRef = React.createRef();
     }
-    handleonChange() {
-        try {
-            this.props.onChange.execute();
-        } catch (error) {
-            console.log("You have to specify an On change action of reCAPTCHA widget");
+
+    handleOnEvent(callbackFun) {
+        if (callbackFun !== undefined) {
+            return callbackFun;
+        } else {
+            return undefined;
         }
+    }
+
+    onChange(value) {
+        console.log("Captcha value:", value);
+    }
+
+    getResponseToken() {
+        document.getElementById("recaptcha-token").value;
+    }
+
+    getResponseToken2() {
+        document.getElementsByName("recaptchaResponse").value;
+    }
+
+    onSubmit = () => {
+        console.log("test recaptcha");
+        const recaptchaValue = recaptchaRef.current.getValue();
+        this.props.onSubmit(recaptchaValue);
+        console.log(recaptchaValue);
+        alert(recaptchaValue);
+    };
+
+    verifyCallback(recaptchaToken) {
+        const { change } = this.props;
+        // inside hidden field
+        change("recaptchaResponse", recaptchaToken);
+        // or state
+        this.setState("recaptchaResponse", recaptchaToken);
     }
 
     render() {
         return (
-            <ReCAPTCHA
-                sitekey={this.props.sitekey}
-                onChange={this.handleonChange}
-                theme={this.props.theme}
-                onExpired={this.props.onExpired !== undefined ? this.props.onExpired.execute : undefined}
-                onErrored={this.props.onErrored !== undefined ? this.props.onErrored.execute : undefined}
-                size={this.props.size}
-            />
+            <form onSubmit={this.onSubmit} id="form-recaptcha">
+                <ReCAPTCHA
+                    ref={this.recaptchaRef}
+                    name="recaptchaResponse"
+                    sitekey={this.props.sitekey}
+                    onChange={this.onChange}
+                    theme={this.props.theme}
+                    onExpired={this.handleOnEvent(this.props.onExpired)}
+                    onErrored={this.handleOnEvent(this.props.onErrored)}
+                    size={this.props.size}
+                />
+            </form>
         );
     }
 }
