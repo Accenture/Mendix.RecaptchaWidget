@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="objectivity.recaptcha.ReCaptcha" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Re Captcha</name>
+    <description>reCaptcha google widget for mendix applications</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="sitekey" type="string" required="true">
+                <caption>Site key</caption>
+                <description>The API client key</description>
+            </property>
+            <property key="theme" type="enumeration" defaultValue= "light">
+                <caption>Theme</caption>
+                <description>The theme of the widget</description>
+                <enumerationValues>
+                <enumerationValue key="light">Light</enumerationValue>
+                <enumerationValue key="dark">Dark</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="onChange" type="action" required="true">
+                <caption>On validation</caption>
+                <description>The function to be called when the user successfully completes the captcha</description>
+            </property>
+            <property key="onExpired" type="action" required="false">
+                <caption>On expired</caption>
+                <description>Callback when the challenge is expired and has to be redone by user. By default it will call the onChange with null to signify expired callback.</description>
+            </property>
+            <property key="onErrored" type="action" required="false">
+                <caption>On failed validation</caption>
+                <description>Callback when the challenge errored, most likely due to network issues.</description>
+            </property>
+            <property key="size" type="enumeration" defaultValue= "normal">
+                <caption>Size</caption>
+                <description>This allows you to change the size.</description>
+                <enumerationValues>
+                <enumerationValue key="compact">Compact</enumerationValue>
+                <enumerationValue key="normal">Normal </enumerationValue>
+                </enumerationValues>
+            </property>
+            
+            
+        </propertyGroup>
+    </properties>
+</widget>
+
