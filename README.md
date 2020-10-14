@@ -1,4 +1,4 @@
-## RecaptchaVersionTwo
+## Recaptcha
 Recaptcha widget for bot verification. Implementation provides a client and a server side validation with Google Recaptcha Server.] The widget is based on npm module (https://www.npmjs.com/package/react-google-recaptcha).
 
 ## Usage
