@@ -2,8 +2,8 @@
 <widget id="objectivity.recaptchaversiontwo.RecaptchaVersionTwo" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
     xmlns="http://www.mendix.com/widget/1.0/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
-    <name>RecaptchaVersionTwo</name>
-    <description>reCaptcha google widget for mendix applications</description>
+    <name>Recaptcha</name>
+    <description>ReCaptcha google widget for mendix applications</description>
     <icon/>
     <properties>
         <propertyGroup caption="General">
