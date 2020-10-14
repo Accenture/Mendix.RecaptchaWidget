@@ -1,8 +1,8 @@
 ## RecaptchaVersionTwo
-[Recaptcha widget for bot verification. Implementation provides a client and a server side validation with Google Recaptcha Server.] The widget is based on npm module (https://www.npmjs.com/package/react-google-recaptcha).
+Recaptcha widget for bot verification. Implementation provides a client and a server side validation with Google Recaptcha Server.] The widget is based on npm module (https://www.npmjs.com/package/react-google-recaptcha).
 
 ## Usage
-[1) Sign up for secret and site key pair here https://www.google.com/recaptcha/admin/create 
+1) Sign up for secret and site key pair here https://www.google.com/recaptcha/admin/create 
 2) Put your site key into SiteKey variable and Secret Key into SecretKey variable in Recaptcha Mendix Module
 3) The widget needs to be placed in a Data View with a Microflow (DS_SiteKeyCreation) as a Data Source.
 4) Open the widget configuration and put $currentObject/Value into the field for a SiteKey
