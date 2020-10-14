@@ -7,6 +7,7 @@ Recaptcha widget for bot verification. Implementation provides a client and a se
 3) The widget needs to be placed in a Data View with a Microflow (DS_SiteKeyCreation) as a Data Source.
 4) Open the widget configuration and put $currentObject/Value into the field for a SiteKey
 5) The rest of the fields in the configuration are optional and can be configured based on your needs
+6) In the ResponseValidation Microflow, you can decide what to do 
 
 The whole API documentation for Google recaptcha can be found here https://developers.google.com/recaptcha/docs/verify. 
 Once user click on reCAPTCHA to confirm he is not a bot, client side control will make the request to Google validation server with a site key provided in the widget configuration. When it gets the response from the validation server, it will be passed to the mendix application and validated by calling Google reCAPTCHA validation url with both response token and SecretKey. Based on the response you can decide whether the request was from a real person or a bot and take the appropriate action.
