@@ -2,9 +2,9 @@ import React, { Component, createElement } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 const recaptchaRef = React.createRef();
 
-let postObject = async function(productObj) {
+const postObject = async function(productObj) {
     return new Promise(function(resolve, reject) {
-        mx.data.action({
+        window.mx.data.action({
             params: {
                 applyto: "selection",
                 actionname: "Recaptcha.ResponseValidation",
@@ -25,9 +25,9 @@ let postObject = async function(productObj) {
     });
 };
 
-let createObject = async function(token) {
+const createObject = async function(token) {
     return new Promise(function(resolve, reject) {
-        mx.data.create({
+        window.mx.data.create({
             entity: "Recaptcha.Token",
             callback: function(obj) {
                 obj.set("Token", token);
@@ -44,6 +44,15 @@ let createObject = async function(token) {
 export default class ReCaptcha extends Component {
     constructor(props) {
         super(props);
+        this.state = { sitekey: "" };
+    }
+    componentDidMount() {
+        const interval = setInterval(() => {
+            if (this.props.sitekey.status === "available") {
+                this.setState({ sitekey: this.props.sitekey.value });
+                clearInterval(interval);
+            }
+        }, 50);
     }
 
     handleOnEvent(callbackFun) {
@@ -55,19 +64,17 @@ export default class ReCaptcha extends Component {
     }
 
     async onChangeEvent() {
-        let token = recaptchaRef.current.getValue();
+        const token = recaptchaRef.current.getValue();
         await createObject(token).then(postObject);
     }
 
     render() {
-        return (
+        return this.state.sitekey === "" ? (<div> </div>) : (
             <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={this.props.sitekey.value}
+                sitekey={this.state.sitekey}
                 onChange={this.onChangeEvent}
                 theme={this.props.theme}
-                onExpired={this.handleOnEvent(this.props.onExpired)}
-                onErrored={this.handleOnEvent(this.props.onErrored)}
                 size={this.props.size}
             />
         );
