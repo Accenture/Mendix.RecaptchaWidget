@@ -1,12 +1,12 @@
 {
-  "name": "recaptcha",
-  "widgetName": "ReCaptcha",
+  "name": "recaptchaversiontwo",
+  "widgetName": "RecaptchaVersionTwo",
   "version": "1.0.0",
-  "description": "reCaptcha google widget for mendix applications",
+  "description": "My widget description",
   "copyright": "Objectivity 2020 ",
   "author": "Lenka Hruscakova",
   "config": {
-    "projectPath": "./tests/testProject/",
+    "projectPath": "./tests/reCAPTCHA3-main/",
     "mendixHost": "http://localhost:8080",
     "developmentPort": "3000"
   },
