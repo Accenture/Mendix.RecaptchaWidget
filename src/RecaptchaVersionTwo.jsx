@@ -69,7 +69,9 @@ export default class ReCaptcha extends Component {
     }
 
     render() {
-        return this.state.sitekey === "" ? (<div> </div>) : (
+        return this.state.sitekey === "" ? (
+            <div> </div>
+        ) : (
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={this.state.sitekey}
