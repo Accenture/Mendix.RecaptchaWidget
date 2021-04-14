@@ -1,59 +1,14 @@
 import React, { Component, createElement } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-const recaptchaRef = React.createRef();
-
-const postObject = async function(productObj) {
-    return new Promise(function(resolve, reject) {
-        window.mx.data.action({
-            params: {
-                applyto: "selection",
-                actionname: "Recaptcha.ResponseValidation",
-                guids: [productObj._guid]
-            },
-            callback: function(microflowReturnValue) {
-                if (microflowReturnValue === false) {
-                    recaptchaRef.current.reset();
-                }
-                console.log(microflowReturnValue);
-                resolve(microflowReturnValue);
-            },
-            error: function(e) {
-                console.error("Error with communication with Mendix app", e);
-                reject("Error with communication with Mendix app", e);
-            }
-        });
-    });
-};
-
-const createObject = async function(token) {
-    return new Promise(function(resolve, reject) {
-        window.mx.data.create({
-            entity: "Recaptcha.Token",
-            callback: function(obj) {
-                obj.set("Token", token);
-                resolve(obj);
-            },
-            error: function(e) {
-                console.error("Could not create object:", e);
-                reject("Could not create object:", e);
-            }
-        });
-    });
-};
 
 export default class ReCaptcha extends Component {
     constructor(props) {
         super(props);
-        this.state = { sitekey: "" };
+        this.state = { token: "" };
+        this.recaptchaRef = React.createRef();
+        this.lastToken = "";
     }
-    componentDidMount() {
-        const interval = setInterval(() => {
-            if (this.props.sitekey.status === "available") {
-                this.setState({ sitekey: this.props.sitekey.value });
-                clearInterval(interval);
-            }
-        }, 50);
-    }
+    componentDidMount() {}
 
     handleOnEvent(callbackFun) {
         if (callbackFun !== undefined) {
@@ -63,19 +18,24 @@ export default class ReCaptcha extends Component {
         }
     }
 
-    async onChangeEvent() {
-        const token = recaptchaRef.current.getValue();
-        await createObject(token).then(postObject);
+    onChangeEvent() {
+        const token = this.recaptchaRef.current.getValue();
+        this.lastToken = token;
+        this.props.token.setValue(token);
     }
 
     render() {
-        return this.state.sitekey === "" ? (
-            <div> </div>
-        ) : (
+        if (this.props.token.status === "available" && this.props.token.value !== this.lastToken) {
+            //the token was changed outside of the widget, assume the token was invalid
+            if (this.recaptchaRef.current) {
+                this.recaptchaRef.current.reset();
+            }
+        }
+        return this.props.sitekey.status !== "available" ? null : (
             <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={this.state.sitekey}
-                onChange={this.onChangeEvent}
+                ref={this.recaptchaRef}
+                sitekey={this.props.sitekey.value}
+                onChange={this.onChangeEvent.bind(this)}
                 theme={this.props.theme}
                 size={this.props.size}
             />
