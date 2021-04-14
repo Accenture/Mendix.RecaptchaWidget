@@ -12,14 +12,6 @@
                 <description>The API client key</description>
                 <returnType type="String" />
             </property>
-            <property key="token" type="attribute" required="true">
-                <caption>Token</caption>
-                <description>Attribute that will be set with the Recaptcha token. It should be used in a REST call to Google to validate it. 
-                If validation fails, you should update this string to empty.</description>
-                <attributeTypes>
-                    <attributeType name="String"/>
-                </attributeTypes>
-            </property>
             <property key="theme" type="enumeration" defaultValue= "light">
                 <caption>Theme</caption>
                 <description>The theme of the widget</description>

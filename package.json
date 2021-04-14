@@ -6,7 +6,7 @@
   "copyright": "Objectivity 2020 ",
   "author": "Lenka Hruscakova",
   "config": {
-    "projectPath": "/Volumes/[C] Windows 10/Mendix/Avantax/PasswordChecker",
+    "projectPath": "./tests/reCAPTCHA3-main/",
     "mendixHost": "http://localhost:8080",
     "developmentPort": "3000"
   },
