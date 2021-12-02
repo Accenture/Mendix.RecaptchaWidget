@@ -34,6 +34,16 @@
                 <enumerationValues>
                     <enumerationValue key="compact">Compact</enumerationValue>
                     <enumerationValue key="normal">Normal </enumerationValue>
+                    <enumerationValue key="invisible">Invisible </enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="badge" type="enumeration" defaultValue= "bottomright">
+                <caption>Badge Position</caption>
+                <description>Set the position of Recaptcha badge (For invisible size only)</description>
+                <enumerationValues>
+                    <enumerationValue key="bottomright">Bottom Right</enumerationValue>
+                    <enumerationValue key="bottomleft">Bottom Left</enumerationValue>
+                    <enumerationValue key="inline">Inline</enumerationValue>
                 </enumerationValues>
             </property>
         </propertyGroup>
