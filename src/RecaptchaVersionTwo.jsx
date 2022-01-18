@@ -7,6 +7,9 @@ export default class ReCaptcha extends Component {
         this.state = { token: "" };
         this.recaptchaRef = React.createRef();
         this.lastToken = "";
+        window.recaptchaRef = {
+            execute: this.execute.bind(this)
+        };
     }
     componentDidMount() {}
 
@@ -24,6 +27,12 @@ export default class ReCaptcha extends Component {
         this.props.token.setValue(token);
     }
 
+    execute() {
+        const verified = this.recaptchaRef.current.executeAsync();
+        console.info("inside execute function: " + verified);
+        return verified;
+    }
+
     render() {
         if (this.props.token.status === "available" && this.props.token.value !== this.lastToken) {
             //the token was changed outside of the widget, assume the token was invalid
@@ -38,6 +47,7 @@ export default class ReCaptcha extends Component {
                 onChange={this.onChangeEvent.bind(this)}
                 theme={this.props.theme}
                 size={this.props.size}
+                badge={this.props.badge}
             />
         );
     }
