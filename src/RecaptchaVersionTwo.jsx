@@ -25,6 +25,7 @@ export default class ReCaptcha extends Component {
         const token = this.recaptchaRef.current.getValue();
         this.lastToken = token;
         this.props.token.setValue(token);
+        this.props.onChangeObject.execute();
     }
 
     execute() {
