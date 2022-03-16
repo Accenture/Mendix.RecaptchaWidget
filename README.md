@@ -20,6 +20,7 @@ Token entity must have read and write access right for your user and you must al
 | Theme | enum | *optional* `light` or `dark` The theme of the widget *(__defaults:__ `light`)*. 
 | Size | enum | *optional* `compact`, `normal`, `invisible`. This allows you to change the size. |
 | Badge Position | enum | *optional* `Bottom Right`, `Bottom Left`, `Inline`. Set the position of Recapctha badge (for invisible size only). |
+| On click action | action | You can define on click action for recaptcha. |
 
 
 ## Issues, suggestions and feature requests
